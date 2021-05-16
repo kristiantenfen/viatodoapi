@@ -1,0 +1,15 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 33066,
+    "username": "root",
+    "password": "paycloud",
+    "database": "viatodo",
+    "migrations": [
+        "./src/database/migrations/*.ts"
+    ],
+    "entities": [ "./src/models/*.ts" ],
+    "cli": {
+        "migrationsDir": "./src/database/migrations"
+    }
+}
