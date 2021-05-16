@@ -31,9 +31,9 @@ export async function updateTask(request: Request, response: Response) {
             task.title = title;
             task.description = description;
             task.status = status;
-        task.updated_at = new Date();
-        taskRepository.save(task);
-        return response.json(task);
+            task.updated_at = new Date();
+            taskRepository.save(task);
+            return response.json(task);
         }
         return response.json({message: 'Registro não encontrado!'}).status(404);
     } catch (err) { }
@@ -43,7 +43,7 @@ export async function updateTask(request: Request, response: Response) {
 export async function deleteTask(request: Request, response: Response) {
     try {
         
-    
+        
     const { id } = request.params;
     const taskRepository = getCustomRepository(TaskRepository);
     const task = await taskRepository.findOne(id);
@@ -51,7 +51,6 @@ export async function deleteTask(request: Request, response: Response) {
         taskRepository.remove(task);
         return response.json({message: 'Registro excluído com sucesso!'});
     }
-
         return response.json({ message: 'Registro não encontrado!' }).status(404);
     } catch (err) { }
     
@@ -61,7 +60,5 @@ export async function deleteTask(request: Request, response: Response) {
 export async function listTasks(request: Request, response: Response) {
     const taskRepository = getCustomRepository(TaskRepository);
     const tasks = await taskRepository.find();
-
-    
-    return response.json(tasks);
+    return response.json({ data: tasks });
 }

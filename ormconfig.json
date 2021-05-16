@@ -3,7 +3,7 @@
     "host": "localhost",
     "port": 33066,
     "username": "root",
-    "password": "paycloud",
+    "password": "",
     "database": "viatodo",
     "migrations": [
         "./src/database/migrations/*.ts"
